@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Navegación simple</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .seccion {
+      display: none;
+      padding: 2rem;
+    }
+    .activa {
+      display: block;
+    }
+    button {
+      margin: 0.5rem;
+      padding: 0.7rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #007acc;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #005f99;
+    }
+  </style>
+</head>
+<body>
+  <h1>Navegación con botones</h1>
+  <div>
+    <button onclick="mostrar('inicio')">Inicio</button>
+    <button onclick="mostrar('sobre')">Sobre mí</button>
+    <button onclick="mostrar('contacto')">Contacto</button>
+  </div>
+
+  <div id="inicio" class="seccion activa">
+    <h2>Bienvenido</h2>
+    <p>Esta es la página de inicio.</p>
+  </div>
+  <div id="sobre" class="seccion">
+    <h2>Sobre mí</h2>
+    <p>Aquí iría una descripción personal.</p>
+  </div>
+  <div id="contacto" class="seccion">
+    <h2>Contacto</h2>
+    <p>Correo: ejemplo@mail.com</p>
+  </div>
+
+  <script>
+    function mostrar(id) {
+      document.querySelectorAll(".seccion").forEach(sec => {
+        sec.classList.remove("activa");
+      });
+      document.getElementById(id).classList.add("activa");
+    }
+  </script>
+</body>
+</html>
